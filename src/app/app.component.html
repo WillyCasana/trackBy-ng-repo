@@ -1,0 +1,35 @@
+<div class="container">
+  <header>
+    <h1>{{title}}</h1>
+    <p class="description">
+      This demo shows performance issues when not using trackBy with *ngFor.
+      Watch the browser's performance in Dev Tools when clicking the buttons.
+    </p>
+  </header>
+
+  <div class="controls">
+    <button (click)="updateItems()">Update All Items</button>
+    <button (click)="addItem()">Add New Item</button>
+    <p class="counter">Updates performed: {{updateCount}}</p>
+  </div>
+
+  <div class="performance-tips">
+    <h3>Tips:</h3>
+    <ul>
+      <li>Open browser DevTools (F12)</li>
+      <li>Go to Performance tab</li>
+      <li>Click "Record" and then click "Update All Items" button</li>
+      <li>Stop recording and observe the rendering time</li>
+      <li>You'll notice significant re-rendering when trackBy is not used</li>
+    </ul>
+  </div>
+
+  <div class="item-list">
+    <!-- This is the problematic part - not using trackBy -->
+    <div class="item" *ngFor="let item of items">
+      <span class="item-id">#{{item.id}}</span>
+      <span class="item-name">{{item.name}}</span>
+      <span class="item-value">Value: {{item.value}}</span>
+    </div>
+  </div>
+</div> 
