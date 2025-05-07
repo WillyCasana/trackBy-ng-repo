@@ -61,4 +61,8 @@ export class AppComponent {
     this.items = [newItem, ...this.items];
     this.updateCount++;
   }
+
+  trackByItem(index: number, item: any):number{
+    return item.id;
+  }
 }
